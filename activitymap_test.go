@@ -3,38 +3,40 @@ package activitymap
 import "testing"
 
 func TestShouldCreateNone(t *testing.T) {
-	if a := New(0); a.GetActivty() != 0 {
-		t.Errorf("should have created none got %v", a.GetActivty())
+	a := New(0)
+	if r := a.GetActivty(); r != 0 {
+		t.Errorf("should have created none got %v", r)
 	}
 }
 
 func TestShouldSome(t *testing.T) {
-	if a := New(1); a.GetActivty() != 1 {
-		t.Errorf("should have created 1 got %v", a.GetActivty())
+	a := New(1)
+	if r := a.GetActivty(); r != 1 {
+		t.Errorf("should have created 1 got %v", r)
 	}
 }
 
 func TestShouldAddMinuteFirstMinute(t *testing.T) {
 	a := New(0)
 	a.AddMinute(1)
-	if a := New(1); a.GetActivty() != 1 {
-		t.Errorf("should have added 1 got %v", a.GetActivty())
+	if r := a.GetActivty(); r != 1 {
+		t.Errorf("should have added 1 got %v", r)
 	}
 }
 
 func TestShouldAddMinuteLastMinute(t *testing.T) {
 	a := New(0)
 	a.AddMinute(60)
-	if a.GetActivty() != 576460752303423488 {
-		t.Errorf("should have added 60 minutes (576460752303423488 decimal) got decimal %v", a.GetActivty())
+	if r := a.GetActivty() != 576460752303423488; r {
+		t.Errorf("should have added 60 minutes (576460752303423488 decimal) got decimal %v", r)
 	}
 }
 
 func TestShouldAddMiddleMinute(t *testing.T) {
 	a := New(0)
 	a.AddMinute(30)
-	if a.GetActivty() != 536870912 {
-		t.Errorf("should have added 30 minutes (536870912 decimal) got decimal %v", a.GetActivty())
+	if r := a.GetActivty() != 536870912; r {
+		t.Errorf("should have added 30 minutes (536870912 decimal) got decimal %v", r)
 	}
 }
 
@@ -51,8 +53,8 @@ func TestShouldPanicWhenMinuteBad(t *testing.T) {
 
 func TestShouldVerifyFirstMinute(t *testing.T) {
 	a := New(1)
-	if a.WasOn(1) != true {
-		t.Errorf("should have found it instead: %v", a.WasOn(1))
+	if r := a.WasOn(1) != true; r {
+		t.Errorf("should have found it instead: %v", r)
 	}
 }
 
