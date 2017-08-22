@@ -68,10 +68,8 @@ func (am *ActivityMap) GetRanges() []Tuple {
 			if isOn {
 				isOn = false
 				activeRanges = append(activeRanges, NewTuple(prevIndex, currentIndex-1))
-				prevIndex = currentIndex
-			} else {
-				prevIndex = currentIndex
 			}
+			prevIndex = currentIndex
 		}
 	}
 	if isOn == true {
